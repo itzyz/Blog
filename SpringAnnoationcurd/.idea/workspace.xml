@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9e20595d-fb8f-4f5d-b471-f721939a3e29" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\tools\maven\maven_repository" />
+        <option name="mavenHome" value="D:/tools/maven/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\tools\maven\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="1ZwBtcqZv7GbN1HC8A0oUozsbTS" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager" selected="JUnit.AccountTest.Update">
+    <configuration name="AccountTest.Delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringAnnoationcurd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.AccountTest" />
+      <option name="METHOD_NAME" value="Delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.Save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringAnnoationcurd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.AccountTest" />
+      <option name="METHOD_NAME" value="Save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.Update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringAnnoationcurd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.AccountTest" />
+      <option name="METHOD_NAME" value="Update" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringAnnoationcurd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.AccountTest" />
+      <option name="METHOD_NAME" value="findAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.findById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringAnnoationcurd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.AccountTest" />
+      <option name="METHOD_NAME" value="findById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AccountTest.Update" />
+        <item itemvalue="JUnit.AccountTest.Delete" />
+        <item itemvalue="JUnit.AccountTest.findAll" />
+        <item itemvalue="JUnit.AccountTest.findById" />
+        <item itemvalue="JUnit.AccountTest.Save" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e20595d-fb8f-4f5d-b471-f721939a3e29" name="Default Changelist" comment="" />
+      <created>1585740491301</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585740491301</updated>
+      <workItem from="1585740492661" duration="169000" />
+      <workItem from="1585750489054" duration="1887000" />
+      <workItem from="1585810301852" duration="6832000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="24" key="#Project_Structure" timestamp="1585750804918">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="24" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1585750804918" />
+    <state x="383" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585813016938">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="383" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1585813016938" />
+    <state width="1322" height="276" key="GridCell.Tab.0.bottom" timestamp="1585821798203">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="276" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585821798203" />
+    <state width="1322" height="276" key="GridCell.Tab.0.center" timestamp="1585821798203">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="276" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585821798203" />
+    <state width="1322" height="276" key="GridCell.Tab.0.left" timestamp="1585821798203">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="276" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585821798203" />
+    <state width="1322" height="276" key="GridCell.Tab.0.right" timestamp="1585821798203">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="276" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585821798203" />
+    <state width="1322" height="217" key="GridCell.Tab.1.bottom" timestamp="1585752417014">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="217" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585752417014" />
+    <state width="1322" height="217" key="GridCell.Tab.1.center" timestamp="1585752417014">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="217" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1585752417014" />
+    <state width="1322" height="217" key="GridCell.Tab.1.left" timestamp="1585752417014">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="217" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1585752417014" />
+    <state width="1322" height="217" key="GridCell.Tab.1.right" timestamp="1585752417014">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="217" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1585752417014" />
+    <state x="186" y="0" key="SettingsEditor" timestamp="1585750950712">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585750950712" />
+    <state x="568" y="183" key="com.intellij.ide.util.TipDialog" timestamp="1585810320631">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="568" y="183" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585810320631" />
+    <state x="363" y="54" key="spring file set editor" timestamp="1585750715853">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="54" key="spring file set editor/0.0.1366.728@0.0.1366.728" timestamp="1585750715853" />
+  </component>
+</project>

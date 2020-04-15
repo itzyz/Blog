@@ -37,4 +37,8 @@ public class userServiceImpl implements userService {
         }
         return usersData;
     }
+
+    public void insertAUser(User user) {
+        userDao.insertAUser(user);
+    }
 }

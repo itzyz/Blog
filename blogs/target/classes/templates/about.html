@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragment::head(~{::title})">
+		<meta charset="utf-8" />
+		<title>关于我</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="_fragment::menu(5)" class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container-small m-padded-tb-large animated flipInX ">
+			<div class="ui container">
+				<div class="ui grid center aligned">
+					<div class="sixteen wide column">
+						<img src="../static/img/3.jpg" alt="" class="ui medium circular image centered m-img-circular">
+						<h2 style="font-weight: bold;font-family:微软雅黑;color:#444444;">Zyongzhi丶Blog</h2>
+						<p class="m-padded-tb" style="font-size: 17px;color:#444444;">一个Java小白的个人博客，记录一些学习中值得记录的工具&代码和个人生活</p>
+						<i class="ui mini linkify icon" style="color: gray;"></i>&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="color:#444444;">www.apenixx.top</a>
+						<div class="ui buttom attched basic teal segment m-padded-tb-big">
+							<a href="https://github.com/itzyz/IDEATestRepository" class="ui circular icon button m-margin-lr-large"><i class="large github icon"></i></a>
+							<a href="#" class="ui circular icon button m-margin-lr-large weixin"><i class="large weixin icon"></i></a>
+							<a href="#" class="ui circular icon button m-margin-lr-large qq" data-content="951815578"><i class="large qq icon"></i></a>
+							<a href="https://weibo.com/u/6877181274" class="ui circular icon button m-margin-lr-large"><i class="large weibo icon"></i></a>
+						</div>
+						<div class="ui weixinQR flowing popup transition hidden">
+							<img src="../static/img/wechrt.png" alt="" class="ui rounded image m-img-large">
+						</div>
+						<div>
+							<h2 class="ui horizontal divider header  m-text-thin m-text-color">简介</h2>
+							<p class="m-text-color m-text-height m-text-size">ApeNixX's Blog是一个由个人开发的博客网站，后端使用SpringBoot+Mybatis+Redis，前端框架使用AmazeUI+LayUI。诞生于2020年02月14日。
+							本站采	用华为云提供的服务器ECS和阿里云的存储对象OSS。</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<ol class="ui list m-text-color m-padded-tb-big">
+					  <li value="-"><h3>当前版本</h3>
+						<ol class="m-text-color">
+						  <li value="-">前端使用的是一个基于Bootstarp的一个前端模板，感觉页面比较简单且布局生硬。当时没想太多，主要是个人爱好写着玩。</li>
+						  <li value="-">接着购买了服务器，域名，开始制作。</li>
+						</ol>
+					  </li>
+					</ol>
+				</div>
+				<div class="ui grid center aligned m-text-color">
+					<h3>The End</h3>
+				</div>
+			</div>
+		</div>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="_fragment::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function() {
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+			$('.qq').popup();
+			$('.weixin').popup({
+				popup:$('.weixinQR.popup'),
+				position:'top center'
+			});
+		</script>
+	</body>
+</html>

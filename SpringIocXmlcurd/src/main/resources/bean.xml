@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置service-->
+    <bean id="accountService" class="com.itheima.service.Impl.AccountServiceImpl">
+        <!--注入AccountDao-->
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+
+    <!--配置dao-->
+    <bean id="accountDao" class="com.itheima.dao.Impl.AccountDaoImpl">
+        <!--注入ruuner-->
+        <property name="runner" ref="ruuner"></property>
+    </bean>
+
+    <!--配置QueryRuuner-->
+    <bean id="ruuner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"><!--作用范围多例模式-->
+        <!--注入数据源构造函数注入-->
+        <constructor-arg name="ds" ref="dataSouce"></constructor-arg>
+    </bean>
+
+    <!--配置数据源-->
+    <bean id="dataSouce" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入数据源-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy_spring"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+</beans>
