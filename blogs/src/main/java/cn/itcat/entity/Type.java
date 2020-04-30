@@ -1,10 +1,12 @@
 package cn.itcat.entity;
 
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Type {
     private  Integer  typeid;
+   /* @NotBlank(message = "类型名称不能为空！")*/
     private String  typename;
     /*一对多*/
     private List<Blogs> blogs=new ArrayList<>();

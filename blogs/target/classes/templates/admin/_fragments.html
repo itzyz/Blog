@@ -18,15 +18,15 @@
     <div class="ui container">
         <div class="ui inverted secondary menu stackable">
             <h2 class="ui teal header item">管理后台</h2>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==2} ? 'active'"><i class="clone icon"></i>标签</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==3} ? 'active'"><i class="idea icon"></i>分类</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==4} ? 'active'"><i class="edit icon"></i>点点滴滴</a>
+            <a href="#" th:href="@{/admin/blogs}"  class="m-item item m-mobil-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/tag}"  class="m-item item m-mobil-hide" th:classappend="${n==2} ? 'active'"><i class="clone icon"></i>标签</a>
+            <a href="#" th:href="@{/admin/type}" class="m-item item m-mobil-hide" th:classappend="${n==3} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/takenote}"  class="m-item item m-mobil-hide" th:classappend="${n==4} ? 'active'"><i class="edit icon"></i>点点滴滴</a>
             <div class="menu right m-item m-mobil-hide">
                 <div class="ui dropdown item">
                     <div class="text">
                         <img src="../static/img/3.jpg" th:src="@{/img/3.jpg}" alt="" class="ui avatar image m-img-mini">
-                        赵勇志
+                        <span th:text="${session.user.nickname}"></span>
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">

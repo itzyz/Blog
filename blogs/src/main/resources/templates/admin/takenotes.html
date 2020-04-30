@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="admin/_fragments::head(~{::title})">
+		<meta charset="utf-8" />
+		<title>点点滴滴</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="admin/_fragments::menus(4)"  class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<div class="ui attched pointing menu">
+			<div class="ui container">
+				<div class="right menu">
+					<a href="" th:href="@{/admin/takenote}" class="active item teal">列表</a>
+					<a href="" th:href="@{/admin/takenote/takenotesinput}" class="item">新增</a>
+				</div>
+			</div>
+		</div>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container m-padded-tb-large ">
+			<div class="ui container">
+				<!--<div th:text="${message}" style="color:red;font-size: 11px;"></div>-->
+				<div class="ui segment message " style="text-align: center;" th:switch="${message}">
+					<p th:case="'0'" style="color:green;font-size: 18px;font-weight: bold;text-align: center;" >恭喜！经验+5</p>
+					<p th:case="'1'" style="color:red;font-size: 18px;font-weight: bold;">新增点滴失败！</p>
+					<p th:case="'2'" style="color:green;font-size: 18px;font-weight: bold;">经验删除喽！-10</p>
+					<p th:case="'3'" style="color:green;font-size: 18px;font-weight: bold;">修改成功！</p>
+					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">点点滴滴</p>
+					<!--<p th:case="*">*类似defult</p>-->
+				</div>
+				<table class="ui table celled center aligned">
+					<thead>
+						<tr>
+							<th></th>
+							<th>点滴记录</th>
+							<th>操作</th>
+                        </tr>
+					</thead>
+					<tbody>
+						<tr th:each="takenotes,stat : ${pageInfo.list}">
+							<td th:text="${stat.count}"></td>
+							<td th:text="${takenotes.content}"></td>
+							<td>
+								<a href="" th:href="@{/admin/takenote/{id}/takenotesinput(id=${takenotes.tid})}" class="ui mini teal basic button">编辑</a>
+								<a href="" th:href="@{/admin/takenote/{id}/del(id=${takenotes.tid})}" class="ui mini red basic button">删除</a>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="6">
+								<div class="ui mini pagination menu left floated">
+									<a th:href="@{/admin/takenote(page=${pageInfo.pageNum}-1)}" class="item">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a th:href="@{/admin/takenote(page=${pageInfo.pageNum}+1)}" class="item">下一页</a>
+								</div>
+								<a href="" th:href="@{/admin/takenote/takenotesinput}" class="ui mini teal basic button right floated">新增</a>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<br><br><br><br><br>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="admin/_fragments::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function(){
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+			$('.ui.dropdown').dropdown({
+				on:'hover'
+			});
+		</script>
+	</body>
+</html>

@@ -12,8 +12,8 @@
 		<div class="ui attched pointing menu">
 			<div class="ui container">
 				<div class="right menu">
-					<a href="" class="active item teal">列表</a>
-					<a href="" class="item">发布</a>
+					<a href=""  th:href="@{/admin/blogs}" class="active item teal">列表</a>
+					<a href=""  th:href="@{/admin/blogs/editBlog}" class="item">发布</a>
 				</div>
 			</div>
 			
@@ -22,20 +22,28 @@
 		<!-- 中间内容开始 -->
 		<div class="m-container m-padded-tb-large ">
 			<div class="ui container">
-				<form action="#" method="post" class="ui segment form">
+				<!--博客信息提示-->
+				<div class="ui segment message " style="text-align: center;" th:switch="${message}">
+					<p th:case="'0'" style="color:red;font-size: 18px;font-weight: bold;text-align: center;" >新增博客失败哦！</p>
+					<p th:case="'1'" style="color:forestgreen;font-size: 18px;font-weight: bold;">恭喜！经验值+10</p>
+					<p th:case="'2'" style="color:green;font-size: 18px;font-weight: bold;">恭喜！认知度+10</p>
+					<p th:case="'3'" style="color:red;font-size: 18px;font-weight: bold;text-align: center;" >删除了心爱的博客-30经验值！</p>
+					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">博客列表</p>
+					<!--<p th:case="*">*类似defult</p>-->
+				</div>
+				<div class="ui segment form">
+					<input type="hidden" name="page">
 					<div class="inline fields">
 						<div class="field">
 							<input type="text" name="title" placeholder="标题">
 						</div>
 						<div class="field">
 						    <div class="ui selection dropdown">
-								<input type="hidden" name="type">
+								<input type="hidden" name="typeid">
 								<i class="dropdown icon"></i>
 								<div class="default text">分类</div>
 									<div class="menu">
-										<div class="item" data-value="1">生活记录</div>
-										<div class="item" data-value="1">情感日记</div>
-										<div class="item" data-value="1">学习清单</div>
+										<div th:each="type : ${types}" class="item" th:data-value="${type.typeid}" th:text="${type.typename}"></div>
 									</div>
 							</div>
 						</div>
@@ -46,71 +54,52 @@
 							</div>
 						</div>
 						<div class="field">
-							<button class="ui mini teal basic button">
+							<button type="button" id="search-btn" class="ui mini teal basic button">
 								<i class="search icon"></i>搜索
 							</button>
 						</div>
 					</div>
-				</form>
-				<table class="ui table celled center aligned">
-					<thead>
-						<tr>
-							<th></th>
-							<th>标题</th>
-							<th>类型</th>
-							<th>推荐</th>
-							<th>更新时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>关于学习的清单</td>
-							<td>认知升级</td>
-							<td>是</td>
-							<td>2020-4-21</td>
-							<td>
-								<a href="" class="ui mini teal basic button">编辑</a>
-								<a href="" class="ui mini red basic button">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>关于学习的清单</td>
-							<td>认知升级</td>
-							<td>是</td>
-							<td>2020-4-21</td>
-							<td>
-								<a href="" class="ui mini teal basic button">编辑</a>
-								<a href="" class="ui mini red basic button">删除</a>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>关于学习的清单</td>
-							<td>认知升级</td>
-							<td>是</td>
-							<td>2020-4-21</td>
-							<td>
-								<a href="" class="ui mini teal basic button">编辑</a>
-								<a href="" class="ui mini red basic button">删除</a>
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<th colspan="6">
-								<div class="ui mini pagination menu left floated">
-									<a href="#" class="item">上一页</a>
-									<a href="#" class="item">下一页</a>
-								</div>
-								<a href="" class="ui mini teal basic button right floated">新增</a>
-							</th>
-						</tr>
-					</tfoot>
-				</table>
-			</div>
+				</div>
+
+					<div id="table-container">
+						<table th:fragment="blogList" class="ui table celled center aligned">
+							<thead>
+							<tr>
+								<th></th>
+								<th>标题</th>
+								<th>类型</th>
+								<th>推荐</th>
+								<th>更新时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody><!--,iterStat iterStat.count-->
+							<tr th:each="blogs,stat:${pageInfo.list}">
+								<td th:text="${stat.count}">1</td>
+								<td th:text="${blogs.title}">关于学习的清单</td>
+								<td th:text="${blogs.type.typename}">认知升级</td>
+								<td th:text="${blogs.recommend} ? '是':'否'">是</td>
+								<td th:text="${blogs.cratetime}">2020-4-21</td>
+								<td>
+									<a th:href="@{/admin/blogs/{id}/editBlog(id=${blogs.bid})}" class="ui mini teal basic button">编辑</a>
+									<a th:href="@{/admin/blogs/{id}/delBlog(id=${blogs.bid})}" class="ui mini red basic button">删除</a>
+								</td>
+							</tr>
+							</tbody>
+							<tfoot>
+							<tr>
+								<th colspan="6">
+									<div class="ui mini pagination menu left floated">
+										<a onclick="page(this)" th:attr="data-page=${pageInfo.pageNum}-1" class="item">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+										<a onclick="page(this)" th:attr="data-page=${pageInfo.pageNum}+1" class="item">下一页</a>
+									</div>
+									<a href="" th:href="@{/admin/blogs/editBlog}" class="ui mini teal basic button right floated">新增</a>
+								</th>
+							</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
 		</div>
 		<br><br><br><br><br>
 		<!-- 中间内容结束 -->
@@ -125,6 +114,26 @@
 			$('.ui.dropdown').dropdown({
 				on:'hover'
 			});
+			function page(obj) {
+				$("[name='page']").val($(obj).data("page"));
+
+				loaddata();
+			}
+			/*搜索点击事件*/
+			$("#search-btn").click(function () {
+				loaddata();
+			});
+			/*ajax请求*/
+			function loaddata() {
+				$("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",
+						{
+							title:$("[name='title']").val(),
+							typeid:$("[name='typeid']").val(),
+							recommend:$("[name='recommend']").prop('checked'),
+							page:$("[name='page']").val()
+						}
+				);
+			}
 		</script>
 	</body>
 </html>

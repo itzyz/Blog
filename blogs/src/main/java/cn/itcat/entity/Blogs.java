@@ -2,7 +2,6 @@ package cn.itcat.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Blogs implements Serializable {
@@ -12,24 +11,58 @@ public class Blogs implements Serializable {
     private String content;
     private String firstpicture;
     private String flag;
-    private String views;
-    private Boolean appreciation;
-    private Boolean sharestatement;
-    private Boolean commentabled;
-    private Boolean published;
-    private Boolean recommend;
-    private Date cratetime;
+    private Integer views;
+    private boolean appreciation;
+    private boolean sharestatement;
+    private boolean commentabled;
+    private boolean published;
+    private boolean recommend;
+    private String cratetime;
+    private String tagids;
     /*博客类型多对一*/
     private Type type=new Type();
     /*博客标签多对多*/
     private List<Tag> tagList=new ArrayList<>();
+    /*博客标签表对应关系*/
+    private List<blog_tag> blog_tag=new ArrayList<>();
     /*多对一*/
     private User user;
     /*一对多*/
     private List<Comment> comments=new ArrayList<>();
+
     public Blogs() {
     }
+    /*初始化tagids
+    public void init(){
+        this.tagids=this.tagToids(this.getBlog_tag());
+        System.out.println("====="+this.tagids);
+    }*/
+    /*将ids变为 1,2,3,*/
+    /*private String tagToids(List<blog_tag> tags){
+        System.out.println("tagToids:"+tags);
+        if(!tags.isEmpty()){
+            StringBuffer ids=new StringBuffer();
+            boolean flag=false;
+            for (blog_tag tag:tags){
+                if(flag){
+                    ids.append(",");
+                }else{
+                    flag=true;
+                }
+               ids.append(tag.getTagid());
+            }
+            return ids.toString();
+        }else{
+            return tagids;
+        }
+    }*/
+    public String getTagids() {
+        return tagids;
+    }
 
+    public void setTagids(String tagids) {
+        this.tagids =tagids;
+    }
     @Override
     public String toString() {
         return "Blogs{" +
@@ -46,35 +79,19 @@ public class Blogs implements Serializable {
                 ", recommend=" + recommend +
                 ", cratetime=" + cratetime +
                 ", type=" + type +
-                ", tagList=" + tagList +
                 ", user=" + user +
                 ", comments=" + comments +
                 '}';
     }
 
-    public List<Comment> getComments() {
-        return comments;
+    public List<cn.itcat.entity.blog_tag> getBlog_tag() {
+        return blog_tag;
     }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setBlog_tag(List<cn.itcat.entity.blog_tag> blog_tag) {
+        this.blog_tag = blog_tag;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Tag> getTagList() {
-        return tagList;
-    }
-
-    public void setTagList(List<Tag> tagList) {
-        this.tagList = tagList;
-    }
 
     public Integer getBid() {
         return bid;
@@ -116,56 +133,60 @@ public class Blogs implements Serializable {
         this.flag = flag;
     }
 
-    public String getViews() {
+    public Integer getViews() {
         return views;
     }
 
-    public void setViews(String views) {
+    public void setViews(Integer views) {
         this.views = views;
     }
 
-    public Boolean getAppreciation() {
+    public boolean isAppreciation() {
         return appreciation;
     }
 
-    public void setAppreciation(Boolean appreciation) {
+    public void setAppreciation(boolean appreciation) {
         this.appreciation = appreciation;
     }
 
-    public Boolean getSharestatement() {
+    public boolean isSharestatement() {
         return sharestatement;
     }
 
-    public void setSharestatement(Boolean sharestatement) {
+    public void setSharestatement(boolean sharestatement) {
         this.sharestatement = sharestatement;
     }
 
-    public Boolean getCommentabled() {
+    public boolean isCommentabled() {
         return commentabled;
     }
 
-    public void setCommentabled(Boolean commentabled) {
+    public void setCommentabled(boolean commentabled) {
         this.commentabled = commentabled;
     }
 
-    public Boolean getPublished() {
+    public boolean isPublished() {
         return published;
     }
 
-    public void setPublished(Boolean published) {
+    public void setPublished(boolean published) {
         this.published = published;
     }
 
-    public Boolean getRecommend() {
+    public boolean isRecommend() {
         return recommend;
     }
 
-    public void setRecommend(Boolean recommend) {
+    public void setRecommend(boolean recommend) {
         this.recommend = recommend;
     }
 
-    public Date getCratetime() {
+    public String getCratetime() {
         return cratetime;
+    }
+
+    public void setCratetime(String cratetime) {
+        this.cratetime = cratetime;
     }
 
     public Type getType() {
@@ -176,7 +197,27 @@ public class Blogs implements Serializable {
         this.type = type;
     }
 
-    public void setCratetime(Date cratetime) {
-        this.cratetime = cratetime;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
     }
 }
