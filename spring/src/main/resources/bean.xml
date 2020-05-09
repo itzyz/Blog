@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <bean id="now" class="java.util.Date"></bean>
+   <bean id="Iservice" class="com.itheima.serviceImpl.serviceImpl">
+       <property name="age">
+           <array>
+                   <value>18</value>
+                   <value>19</value>
+                   <value>20</value>
+                   <value>21</value>
+           </array>
+       </property>
+       <property name="name">
+          <array>
+              <value>ROSE</value>
+              <value>MR.zhang</value>
+              <value>jece</value>
+              <value>jeck</value>
+          </array>
+       </property>
+       <property name="sex">
+           <map>
+              <entry key="ROSE" value="女"></entry>
+               <entry key="zhang" value="女"></entry>
+               <entry key="jece" value="男"></entry>
+               <entry key="jeck" value="女"></entry>
+           </map>
+       </property>
+   </bean>
+</beans>
