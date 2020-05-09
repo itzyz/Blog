@@ -79,7 +79,7 @@
 								<td th:text="${blogs.title}">关于学习的清单</td>
 								<td th:text="${blogs.type.typename}">认知升级</td>
 								<td th:text="${blogs.recommend} ? '是':'否'">是</td>
-								<td th:text="${blogs.cratetime}">2020-4-21</td>
+								<td th:text=" ${#dates.format(blogs.cratetime,'yyyy-MM-dd HH:mm:ss')}">2020-4-21</td>
 								<td>
 									<a th:href="@{/admin/blogs/{id}/editBlog(id=${blogs.bid})}" class="ui mini teal basic button">编辑</a>
 									<a th:href="@{/admin/blogs/{id}/delBlog(id=${blogs.bid})}" class="ui mini red basic button">删除</a>

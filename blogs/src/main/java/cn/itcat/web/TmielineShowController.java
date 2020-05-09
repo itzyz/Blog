@@ -18,7 +18,7 @@ public class TmielineShowController {
 
     @RequestMapping("/timeline")
     public String timeline(Model model){
-        List<Takenote> takenote=takenoteService.getAllTakenotes(1,50);
+        List<Takenote> takenote=takenoteService.getAllTakenotes(1,15);
         PageInfo pageInfo=new PageInfo(takenote);
         model.addAttribute("takenoteInfo",pageInfo);
         return "timeline";

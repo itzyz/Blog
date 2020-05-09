@@ -50,20 +50,22 @@
 						<div class="ui basic teal left pointing label" th:text="${blog.type.typename}"></div>
 					</div>
 					<!-- 标签结束 -->
-					<!--赞赏 -->
-					<div class="ui center aligned basic segment">
-						<buttton id="payButton" class="ui orange basic button circular">赞赏</buttton>
-					</div>
-					<div class="ui payQ flowing popup transition hidden">
-						<div class="ui orange basic label">
-							<div class="ui images" style="font-size: inherit !important;">
-								<div class="image">
-									<img src="../static/img/z_pay.jpg" th:src="@{/img/z_pay.jpg}"  alt="" class="ui rounded bordered image" style="width: 120px;">
-									<div>支付宝</div>
-								</div>
-								<div class="image">
-									<img src="../static/img/w_pay.png"  th:src="@{/img/w_pay.png}" alt="" class="ui rounded bordered image" style="width: 120px;">
-									<div>微信</div>
+					<!--赞赏  -->
+					<div th:if="${blog.appreciation}">
+						<div class="ui center aligned basic segment">
+							<buttton id="payButton" class="ui orange basic button circular">赞赏</buttton>
+						</div>
+						<div class="ui payQ flowing popup transition hidden">
+							<div class="ui orange basic label">
+								<div class="ui images" style="font-size: inherit !important;">
+									<div class="image">
+										<img src="../static/img/z_pay.jpg" th:src="@{/img/z_pay.jpg}"  alt="" class="ui rounded bordered image" style="width: 120px;">
+										<div>支付宝</div>
+									</div>
+									<div class="image">
+										<img src="../static/img/w_pay.png"  th:src="@{/img/w_pay.png}" alt="" class="ui rounded bordered image" style="width: 120px;">
+										<div>微信</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -72,7 +74,7 @@
 				</div>
 				<!-- 内容结束 -->
 				<!-- 博客信息开始 -->
-				<div class="ui attached positive message">
+				<div class="ui attached positive message" th:if="${blog.sharestatement}">
 					<div class="ui middle aligned grid">
 						<div class="eleven wide column">
 							<ui class="list">
@@ -89,7 +91,7 @@
 				</div>
 				<!-- 博客信息结束 -->
 				<!-- 留言区域 -->
-				<div class="ui bottom attached segment">
+				<div class="ui bottom attached segment" th:if="${blog.commentabled}">
 					<!-- 留言区域列表 -->
 					<div id="comment-container" class="ui teal segment">
 						<div th:fragment="commentList">

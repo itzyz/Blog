@@ -35,7 +35,7 @@ public class indexController {
         PageInfo pageTypeInfo=new PageInfo(typeList);
         model.addAttribute("pageTypeInfo",pageTypeInfo);
         /*分页获取标签*/
-        List<Tag> tagList=tagsService.getAllTags(page,11);
+        List<Tag> tagList=tagsService.getAllTags(page,12);
         PageInfo pageTagInfo=new PageInfo(tagList);
         model.addAttribute("pageTagInfo",pageTagInfo);
         /*赋值给blogs
