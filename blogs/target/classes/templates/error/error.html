@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragment::head(~{::title})">
+    <meta charset="utf-8" />
+    <title>访问错误</title>
+</head>
+<body>
+<!-- 导航开始 -->
+<!-- ！important让自己写的样式优先级更高 -->
+<nav th:replace="_fragment::menu(0)" class="ui inverted attached segment m-shadow-small">
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui segment  m-padded-tb-big">
+        <div class="ui container">
+            <h1 style="color: red;">Error</h1>
+            <br>
+            <h3>对不起！代码好像跑丢了哦~</h3>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<footer th:replace="_fragment::footer" class="ui inverted attached segment m-padded-tb">
+</footer>
+<!-- 底部结束 -->
+<script>
+    $('.menu.toggle').click(function() {
+        $('.m-item').toggleClass('m-mobil-hide');
+    });
+</script>
+</body>
+</html>

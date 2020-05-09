@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragment::head(~{::title})">
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
+		<title>标签</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="_fragment::menu(4)" class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container-small m-padded-tb-large ">
+			<div class="ui container">
+				<!-- 时光轴 -->
+				<ul class="layui-timeline m-padded-lr">
+					<li class="layui-timeline-item" th:each="take:${takenoteInfo.list}">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h5 class="layui-timeline-title " th:text="${#dates.format(take.cratetime,'yyyy-MM-dd HH:dd')}">8月18日</h5>
+							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
+										<p th:text="${take.content}">
+											layui 2.0 的一切准备之弦，一触即发。
+											无论它我曾倾注全心，无怨无悔
+										</p>
+								  </div>
+						</div>
+					</li>
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h5 class="layui-timeline-title">完成时间：2020-5-9 15:50</h5>
+							<div class="ui label segment teal basic m-bg-colo m-padded-tb-minis">
+								<p>
+									The End
+								</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- 时光轴结束 -->
+			</div>
+		</div>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="_fragment::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function() {
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+		</script>
+	</body>
+</html>

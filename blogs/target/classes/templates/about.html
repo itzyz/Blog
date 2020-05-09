@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragment::head(~{::title})">
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
+		<title>关于我</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="_fragment::menu(5)" class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container-small m-padded-tb-large animated flipInX ">
+			<div class="ui container">
+				<div class="ui grid center aligned">
+					<div class="sixteen wide column">
+						<img src="../static/img/3.jpg" th:src="@{/img/me.jpg}" alt="" class="ui medium circular image centered m-img-circular">
+						<br/>
+						<h2 style="font-weight: bold;font-family:微软雅黑;color:#444444;">Zyongzhi丶Blog</h2>
+						<p class="m-padded-tb" style="font-size: 18px;font-weight:normal; color:#444444;">
+							但行好事，莫问前程。<br/><br/>
+							念念不忘，必有回响。<br/><br/>
+							泰山崩于前，我依沐浴更衣焚香沏茶。<br/><br/>
+							诚信正意，手起键落。<br/><br/>
+							Hello&nbsp;World!
+						</p>
+						<i class="ui mini linkify icon" style="color: gray;"></i>&nbsp;<a href="#" target="_blank" style="color:#444444;">www.babycookie.cn</a>
+						<div class="ui buttom attched basic teal segment m-padded-tb-big">
+							<a href="https://github.com/itzyz/IDEATestRepository" class="ui circular icon button m-margin-lr-large"><i class="large github icon"></i></a>
+							<a href="#" class="ui circular icon button m-margin-lr-large weixin"><i class="large weixin icon"></i></a>
+							<a href="#" class="ui circular icon button m-margin-lr-large qq" data-content="951815578"><i class="large qq icon"></i></a>
+							<a href="https://weibo.com/u/6877181274" class="ui circular icon button m-margin-lr-large"><i class="large weibo icon"></i></a>
+						</div>
+						<div class="ui weixinQR flowing popup transition hidden">
+							<img src="../static/img/wechrt.png" th:src="@{/img/wechrt.png}" alt="" class="ui rounded image m-img-large">
+						</div>
+						<div>
+							<h2 class="ui horizontal divider header  m-text-thin m-text-color">简介</h2>
+							<p class="m-text-color m-text-height m-text-size">Zyongzhi Blog是一个由个人开发的博客网站，诞生于2020年5月50日。 本站采用阿里云提供的Linux服务器ECS</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<ol class="ui list m-text-color m-padded-tb-big">
+					  <li value="-"><h3>当前版本</h3>
+						<ol class="m-text-color">
+						  <li value="-">后端框架使用SpringBoot+Mybatis+Redis，前端框架使用Semantic UI+LayUI。</li>
+						  <li value="-">当前图片大多为外链图片，正在更新图片上传管理功能</li>
+						</ol>
+					  </li>
+					</ol>
+				</div>
+				<div class="ui grid center aligned m-text-color">
+					<h3>The End</h3>
+				</div>
+			</div>
+		</div>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="_fragment::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function() {
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+			$('.qq').popup();
+			$('.weixin').popup({
+				popup:$('.weixinQR.popup'),
+				position:'top center'
+			});
+		</script>
+	</body>
+</html>

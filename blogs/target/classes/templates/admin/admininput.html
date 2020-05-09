@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="admin/_fragments::head(~{::title})">
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
+		<title>博客发布</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav  th:replace="admin/_fragments::menus(n)"  class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<div class="ui pointing menu attached">
+			<div class="ui container">
+				<div class="right menu">
+					<a href=""  th:href="@{/admin/blogs}" class="item ">列表</a>
+					<a href=""  th:href="@{/admin/blogs/editBlog}" class="active item teal">发布</a>
+				</div>
+			</div>
+			
+		</div>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container m-padded-tb-large ">
+			<div class="ui container">
+				<form id="blog-form" th:action="@{/admin/blogs/saveBlog}" th:object="${blog}" method="post" class="ui form">
+					<input type="hidden" name="published" >
+					<input type="hidden" name="bid" th:value="*{bid}" >
+					<div class="field">
+						<div class="ui left labeled input">
+							<div class="ui selection compact teal basic dropdown label">
+								<input type="hidden" value="原创" name="flag" th:value="*{flag}">
+								<i class="dropdown icon"></i>
+								<div class="text">原创</div>
+								<div class="menu">
+									<div class="item" data-value="原创">原创</div>
+									<div class="item" data-value="转载">转载</div>
+									<div class="item" data-value="翻译">翻译</div>
+								</div>
+							</div>
+							<input type="text" name="title" placeholder="标题"  th:value="*{title}">
+						</div>
+					</div>
+					<div class="field">
+						<div id="md-content"  style="z-index:1 !important;">
+							<textarea placeholder="博客内容" name="content" th:text="*{content}" style="display: none;">
+							</textarea>
+						</div>
+					</div>
+					<div class="two fields">
+						<div class="field">
+							<div class="ui left action labeled input">
+								<label for="" class="ui compact teal basic label">分类</label>
+									<div class="ui fluid selection dropdown">
+										<input type="hidden" name="type.typeid" th:value="*{type.typeid}">
+										<i class="dropdown icon"></i>
+										<div class="default text">分类</div>
+										<div class="menu">
+											<div th:each="type : ${types}" class="item" th:data-value="${type.typeid}" th:text="${type.typename}"></div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui left action labeled input">
+								<label for="" class="ui compact teal basic label">标签</label>
+									<div class="ui fluid multiple search selection dropdown">
+										<input type="hidden" name="tagids"  th:value="*{tagids}">
+										<i class="dropdown icon"></i>
+										<div class="default text">标签</div>
+										<div class="menu">
+											<div th:each="tag : ${tags}" class="item" th:data-value="${tag.tagid}" th:text="${tag.tagname}"></div>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left labeled input">
+							<label class="ui teal basic label">首图</label>
+							<input type="text" name="firstpicture"  th:value="*{firstpicture}" placeholder="首图引用地址">
+						</div>
+					</div>
+					<div class="required field">
+							<textarea placeholder="博客描述.." name="describes" th:text="*{describes}" maxlength="200" style="width: 100%;">
+							</textarea>
+					</div>
+					<div class="inline fields">
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" id="recommend" checked th:checked="*{recommend}" name="recommend" class="hidden">
+								<label for="recommend">推荐</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" id="sharestatement" name="sharestatement" checked th:checked="*{sharestatement}" class="hidden">
+								<label for="sharestatement">转载声明</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" id="appreciation" name="appreciation" checked th:checked="*{appreciation}" class="hidden">
+								<label for="appreciation">赞赏</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" id="commentabled" name="commentabled"  checked th:checked="*{commentabled}" class="hidden">
+								<label for="commentabled">评论</label>
+							</div>
+						</div>
+					</div>
+					<div class="ui right aligned container">
+						<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+						<button type="button" th:style="*{bid==null}?'display:none;':''"
+								id="save-btn" class="ui secondary button" >修改</button>
+						<button type="button" id="published-btn" class="ui teal button" >发布</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<br><br><br><br><br>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="admin/_fragments::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			/*保存*/
+			$("#save-btn").click(function () {
+				$('[name="published"]').val(false);
+				$("#blog-form").submit();
+			});
+			/*发布*/
+			$("#published-btn").click(function () {
+				$('[name="published"]').val(true);
+				$("#blog-form").submit();
+			});
+			$('.menu.toggle').click(function(){
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+			$('.ui.dropdown').dropdown({
+				on:'hover'
+			});
+			/* 初始化makedown編輯器 */
+			var contentEditor;
+			    $(function() {
+			        contentEditor = editormd("md-content", {
+			            width   : "100%",
+			            height  : 640,
+						emoji   :true,
+			            syncScrolling : "single",
+			            path	: "/lib/editormd/lib/"
+			        });
+			    });
+		</script>
+	</body>
+</html>

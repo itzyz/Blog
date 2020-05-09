@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragment::head(~{::title})">
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
+		<title>归档</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="_fragment::menu(2)" class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container-small m-padded-tb-large ">
+			<div class="ui container">
+				<!-- header -->
+				<div class="ui top attached padded segment">
+					<div class="ui middle aligned two column grid">
+						<div class="column">
+							<h3 class="ui teal header">标签</h3>
+						</div>
+						<div class="right aligned column">
+							共<h3 class="ui orange header m-inlin-block" th:text="${blogCount}">14</h3>篇
+						</div>
+					</div>
+				</div>
+				<!-- 一年开始 -->
+				<th:block th:each="item:${archiveMap}">
+				<h2 class="ui header center aligned" th:text="${item.key}">2017</h2>
+				<div class="ui vertical menu fluid">
+					<!-- 一篇博客开始 -->
+					<a th:href="@{/blog/{id}(id=${blog.bid})}" target="_blank" class="item" th:each="blog:${item.value}">
+						<span>
+							<i class="mini teal circle icon"></i>&nbsp;<span th:text="${blog.title}">&nbsp;关于练习的清单</span>
+							<div class="ui teal basic left pointing label m-padded-mini" th:text="${#dates.format(blog.cratetime,'MMMdd')}">2月11日</div>
+						</span>
+						<div class="ui  basic orange left pointing label m-padded-mini"  th:text="${blog.flag}">原创</div>
+					</a>
+					<!-- 一篇博客结束 -->
+				</div>
+				</th:block>
+				<!-- 一年结束 -->
+				<br /><br />
+			</div>
+		</div>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="_fragment::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function() {
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+		</script>
+	</body>
+</html>
