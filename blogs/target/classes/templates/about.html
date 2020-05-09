@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="_fragment::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>关于我</title>
 	</head>
 	<body>
@@ -15,10 +16,17 @@
 			<div class="ui container">
 				<div class="ui grid center aligned">
 					<div class="sixteen wide column">
-						<img src="../static/img/3.jpg" alt="" class="ui medium circular image centered m-img-circular">
+						<img src="../static/img/3.jpg" th:src="@{/img/me.jpg}" alt="" class="ui medium circular image centered m-img-circular">
+						<br/>
 						<h2 style="font-weight: bold;font-family:微软雅黑;color:#444444;">Zyongzhi丶Blog</h2>
-						<p class="m-padded-tb" style="font-size: 17px;color:#444444;">一个Java小白的个人博客，记录一些学习中值得记录的工具&代码和个人生活</p>
-						<i class="ui mini linkify icon" style="color: gray;"></i>&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="color:#444444;">www.apenixx.top</a>
+						<p class="m-padded-tb" style="font-size: 18px;font-weight:normal; color:#444444;">
+							但行好事，莫问前程。<br/><br/>
+							念念不忘，必有回响。<br/><br/>
+							泰山崩于前，我依沐浴更衣焚香沏茶。<br/><br/>
+							诚信正意，手起键落。<br/><br/>
+							Hello&nbsp;World!
+						</p>
+						<i class="ui mini linkify icon" style="color: gray;"></i>&nbsp;<a href="#" target="_blank" style="color:#444444;">www.babycookie.cn</a>
 						<div class="ui buttom attched basic teal segment m-padded-tb-big">
 							<a href="https://github.com/itzyz/IDEATestRepository" class="ui circular icon button m-margin-lr-large"><i class="large github icon"></i></a>
 							<a href="#" class="ui circular icon button m-margin-lr-large weixin"><i class="large weixin icon"></i></a>
@@ -26,12 +34,11 @@
 							<a href="https://weibo.com/u/6877181274" class="ui circular icon button m-margin-lr-large"><i class="large weibo icon"></i></a>
 						</div>
 						<div class="ui weixinQR flowing popup transition hidden">
-							<img src="../static/img/wechrt.png" alt="" class="ui rounded image m-img-large">
+							<img src="../static/img/wechrt.png" th:src="@{/img/wechrt.png}" alt="" class="ui rounded image m-img-large">
 						</div>
 						<div>
 							<h2 class="ui horizontal divider header  m-text-thin m-text-color">简介</h2>
-							<p class="m-text-color m-text-height m-text-size">ApeNixX's Blog是一个由个人开发的博客网站，后端使用SpringBoot+Mybatis+Redis，前端框架使用AmazeUI+LayUI。诞生于2020年02月14日。
-							本站采	用华为云提供的服务器ECS和阿里云的存储对象OSS。</p>
+							<p class="m-text-color m-text-height m-text-size">Zyongzhi Blog是一个由个人开发的博客网站，诞生于2020年5月50日。 本站采用阿里云提供的Linux服务器ECS</p>
 						</div>
 					</div>
 				</div>
@@ -39,8 +46,8 @@
 					<ol class="ui list m-text-color m-padded-tb-big">
 					  <li value="-"><h3>当前版本</h3>
 						<ol class="m-text-color">
-						  <li value="-">前端使用的是一个基于Bootstarp的一个前端模板，感觉页面比较简单且布局生硬。当时没想太多，主要是个人爱好写着玩。</li>
-						  <li value="-">接着购买了服务器，域名，开始制作。</li>
+						  <li value="-">后端框架使用SpringBoot+Mybatis+Redis，前端框架使用Semantic UI+LayUI。</li>
+						  <li value="-">当前图片大多为外链图片，正在更新图片上传管理功能</li>
 						</ol>
 					  </li>
 					</ol>

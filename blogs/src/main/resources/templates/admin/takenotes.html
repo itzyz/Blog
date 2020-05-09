@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="admin/_fragments::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>点点滴滴</title>
 	</head>
 	<body>
@@ -9,7 +10,7 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav th:replace="admin/_fragments::menus(4)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui pointing menu attached">
 			<div class="ui container">
 				<div class="right menu">
 					<a href="" th:href="@{/admin/takenote}" class="active item teal">列表</a>
@@ -22,7 +23,7 @@
 		<div class="m-container m-padded-tb-large ">
 			<div class="ui container">
 				<!--<div th:text="${message}" style="color:red;font-size: 11px;"></div>-->
-				<div class="ui segment message " style="text-align: center;" th:switch="${message}">
+				<div class="ui segment message attached " style="text-align: center;" th:switch="${message}">
 					<p th:case="'0'" style="color:green;font-size: 18px;font-weight: bold;text-align: center;" >恭喜！经验+5</p>
 					<p th:case="'1'" style="color:red;font-size: 18px;font-weight: bold;">新增点滴失败！</p>
 					<p th:case="'2'" style="color:green;font-size: 18px;font-weight: bold;">经验删除喽！-10</p>
@@ -30,7 +31,7 @@
 					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">点点滴滴</p>
 					<!--<p th:case="*">*类似defult</p>-->
 				</div>
-				<table class="ui table celled center aligned">
+				<table class="ui table celled center aligned attached">
 					<thead>
 						<tr>
 							<th></th>

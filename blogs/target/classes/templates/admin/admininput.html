@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="admin/_fragments::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>博客发布</title>
 	</head>
 	<body>
@@ -9,7 +10,7 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav  th:replace="admin/_fragments::menus(n)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui pointing menu attached">
 			<div class="ui container">
 				<div class="right menu">
 					<a href=""  th:href="@{/admin/blogs}" class="item ">列表</a>
@@ -76,11 +77,15 @@
 					</div>
 					<div class="field">
 						<div class="ui left labeled input">
-							<label for="" class="ui teal basic label">首图</label>
+							<label class="ui teal basic label">首图</label>
 							<input type="text" name="firstpicture"  th:value="*{firstpicture}" placeholder="首图引用地址">
 						</div>
 					</div>
-					<div class="inline fields"> 
+					<div class="required field">
+							<textarea placeholder="博客描述.." name="describes" th:text="*{describes}" maxlength="200" style="width: 100%;">
+							</textarea>
+					</div>
+					<div class="inline fields">
 						<div class="field">
 							<div class="ui checkbox">
 								<input type="checkbox" id="recommend" checked th:checked="*{recommend}" name="recommend" class="hidden">

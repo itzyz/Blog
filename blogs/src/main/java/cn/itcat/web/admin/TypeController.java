@@ -48,7 +48,6 @@ public class TypeController {
     @RequestMapping("/type/{id}/typesinput")
     public String typeInput(@PathVariable Integer id, Model model){
         model.addAttribute("type",typesService.getType(id));
-        System.out.println("-------------------"+id);
         return "admin/typesinput";
     }
     /*

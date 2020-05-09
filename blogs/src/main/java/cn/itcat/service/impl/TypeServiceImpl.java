@@ -1,6 +1,7 @@
 package cn.itcat.service.impl;
 
 import cn.itcat.dao.TypeMapper;
+import cn.itcat.entity.Blogs;
 import cn.itcat.entity.Type;
 import cn.itcat.service.TypesService;
 import com.github.pagehelper.PageHelper;
@@ -20,6 +21,7 @@ public class TypeServiceImpl implements TypesService {
         return typeMapper.saveType(type);
     }
 
+
     /*根据ID获取*/
     public Type getType(Integer typeid) {
         return typeMapper.getByIdType(typeid);
@@ -34,6 +36,12 @@ public class TypeServiceImpl implements TypesService {
     /*获取所有*/
     public List<Type> getAllTypes() {
         return typeMapper.getAllTypes();
+    }
+
+
+    public List<Type> getTypes(Integer page,Integer size) {
+        PageHelper.startPage(page,size);
+        return typeMapper.getTypes();
     }
 
     /*修改*/

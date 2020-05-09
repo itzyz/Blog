@@ -12,12 +12,15 @@ public class Comment implements Serializable {
     private String content;
     private String avatar;
     private Date cratetime;
+    private Integer parentcommentid;
+    private boolean adminComment;
     /*多对一*/
     private Blogs blogs;
     /*自关联一个父类多个子回复*/
     private List<Comment> replyComment=new ArrayList<>();
     /*自关联一个子类多个父关系*/
     private Comment parentComment;
+    private String parentnickname;
     public Comment() {
     }
 
@@ -30,10 +33,36 @@ public class Comment implements Serializable {
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", cratetime=" + cratetime +
+                ", parentcommentid=" + parentcommentid +
                 ", blogs=" + blogs +
                 ", replyComment=" + replyComment +
                 ", parentComment=" + parentComment +
+                ", parentnickname='" + parentnickname + '\'' +
                 '}';
+    }
+
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
+
+    public Integer getParentcommentid() {
+        return parentcommentid;
+    }
+
+    public void setParentcommentid(Integer parentcommentid) {
+        this.parentcommentid = parentcommentid;
+    }
+
+    public String getParentnickname() {
+        return parentnickname;
+    }
+
+    public void setParentnickname(String parentnickname) {
+        this.parentnickname = parentnickname;
     }
 
     public List<Comment> getReplyComment() {

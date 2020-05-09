@@ -1,7 +1,10 @@
 package cn.itcat.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Blogs implements Serializable {
@@ -12,12 +15,14 @@ public class Blogs implements Serializable {
     private String firstpicture;
     private String flag;
     private Integer views;
+    private String describes;
     private boolean appreciation;
     private boolean sharestatement;
     private boolean commentabled;
     private boolean published;
     private boolean recommend;
-    private String cratetime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date cratetime;
     private String tagids;
     /*博客类型多对一*/
     private Type type=new Type();
@@ -32,37 +37,7 @@ public class Blogs implements Serializable {
 
     public Blogs() {
     }
-    /*初始化tagids
-    public void init(){
-        this.tagids=this.tagToids(this.getBlog_tag());
-        System.out.println("====="+this.tagids);
-    }*/
-    /*将ids变为 1,2,3,*/
-    /*private String tagToids(List<blog_tag> tags){
-        System.out.println("tagToids:"+tags);
-        if(!tags.isEmpty()){
-            StringBuffer ids=new StringBuffer();
-            boolean flag=false;
-            for (blog_tag tag:tags){
-                if(flag){
-                    ids.append(",");
-                }else{
-                    flag=true;
-                }
-               ids.append(tag.getTagid());
-            }
-            return ids.toString();
-        }else{
-            return tagids;
-        }
-    }*/
-    public String getTagids() {
-        return tagids;
-    }
 
-    public void setTagids(String tagids) {
-        this.tagids =tagids;
-    }
     @Override
     public String toString() {
         return "Blogs{" +
@@ -71,27 +46,22 @@ public class Blogs implements Serializable {
                 ", content='" + content + '\'' +
                 ", firstpicture='" + firstpicture + '\'' +
                 ", flag='" + flag + '\'' +
-                ", views='" + views + '\'' +
+                ", views=" + views +
+                ", describes='" + describes + '\'' +
                 ", appreciation=" + appreciation +
                 ", sharestatement=" + sharestatement +
                 ", commentabled=" + commentabled +
                 ", published=" + published +
                 ", recommend=" + recommend +
                 ", cratetime=" + cratetime +
+                ", tagids='" + tagids + '\'' +
                 ", type=" + type +
+                ", tagList=" + tagList +
+                ", blog_tag=" + blog_tag +
                 ", user=" + user +
                 ", comments=" + comments +
                 '}';
     }
-
-    public List<cn.itcat.entity.blog_tag> getBlog_tag() {
-        return blog_tag;
-    }
-
-    public void setBlog_tag(List<cn.itcat.entity.blog_tag> blog_tag) {
-        this.blog_tag = blog_tag;
-    }
-
 
     public Integer getBid() {
         return bid;
@@ -141,6 +111,14 @@ public class Blogs implements Serializable {
         this.views = views;
     }
 
+    public String getDescribes() {
+        return describes;
+    }
+
+    public void setDescribes(String describes) {
+        this.describes = describes;
+    }
+
     public boolean isAppreciation() {
         return appreciation;
     }
@@ -181,12 +159,20 @@ public class Blogs implements Serializable {
         this.recommend = recommend;
     }
 
-    public String getCratetime() {
+    public Date getCratetime() {
         return cratetime;
     }
 
-    public void setCratetime(String cratetime) {
+    public void setCratetime(Date cratetime) {
         this.cratetime = cratetime;
+    }
+
+    public String getTagids() {
+        return tagids;
+    }
+
+    public void setTagids(String tagids) {
+        this.tagids = tagids;
     }
 
     public Type getType() {
@@ -195,6 +181,22 @@ public class Blogs implements Serializable {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
+    }
+
+    public List<cn.itcat.entity.blog_tag> getBlog_tag() {
+        return blog_tag;
+    }
+
+    public void setBlog_tag(List<cn.itcat.entity.blog_tag> blog_tag) {
+        this.blog_tag = blog_tag;
     }
 
     public User getUser() {
@@ -211,13 +213,5 @@ public class Blogs implements Serializable {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }
-
-    public List<Tag> getTagList() {
-        return tagList;
-    }
-
-    public void setTagList(List<Tag> tagList) {
-        this.tagList = tagList;
     }
 }

@@ -36,7 +36,7 @@ public class BlogController {
     /*多条件分页查询*/
     @RequestMapping("/blogs")
     public String blogs(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                        @RequestParam(name="size",required = true,defaultValue = "2")int size,
+                        @RequestParam(name="size",required = true,defaultValue = "6")int size,
                         BlogCondition blogs, Model model){
         model.addAttribute("types",typesService.getAllTypes());
         List<Blogs> blogList=blogService.listBlog(page,size,blogs);
@@ -48,7 +48,7 @@ public class BlogController {
     /*异步刷新查询*/
     @RequestMapping("/blogs/search")
     public String search(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                         @RequestParam(name="size",required = true,defaultValue = "2")int size,
+                         @RequestParam(name="size",required = true,defaultValue = "6")int size,
                          BlogCondition blogs, Model model, @RequestParam Integer typeid){
         List<Blogs> blogList=blogService.listBlog(page,size,blogs);
         PageInfo pageInfo=new PageInfo(blogList);
@@ -106,4 +106,5 @@ public class BlogController {
         attributes.addFlashAttribute("message",3);
         return REDIRECT_ADMIN;
     }
+
 }

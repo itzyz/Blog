@@ -1,10 +1,11 @@
 package cn.itcat.entity;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Type {
+public class Type implements Serializable {
     private  Integer  typeid;
    /* @NotBlank(message = "类型名称不能为空！")*/
     private String  typename;

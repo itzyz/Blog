@@ -16,24 +16,19 @@ public class SelectProviders {
                     if(blog!=null){
                         SELECT("*");
                         FROM("blogs");
-                        System.out.println("执行了blog！=null");
                         if(blog.getTitle()!=null && !blog.getTitle().equals("")){
                             /*实现模糊查询LIKE CONCAT('%',#{name},'%') title=#{title}*/
                             WHERE("title LIKE CONCAT('%',#{title},'%')");
-                            System.out.println("执行了if：title");
                         }
                         if(blog.isRecommend()){
                             WHERE("recommend=#{recommend}");
-                            System.out.println("执行了if：recommend");
                         }
                         if(blog.getTypeid()!=null&&!blog.getTypeid().equals("")){
                             WHERE("typeid=#{typeid}");
-                            System.out.println("执行了if：typeid");
                         }
                     }else {
                         SELECT("*");
                         FROM("blogs");
-                        System.out.println("执行了else：blogs");
                     }
                 }
             }.toString();

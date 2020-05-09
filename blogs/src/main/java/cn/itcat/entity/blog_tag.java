@@ -1,8 +1,9 @@
 package cn.itcat.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class blog_tag {
+public class blog_tag implements Serializable {
     private Integer id;
     private Integer bid;
     private Integer tagid;

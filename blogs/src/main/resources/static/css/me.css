@@ -69,6 +69,10 @@ body{
 .m-padded-mini{
 	padding: 0.5em !important;
 }
+.m-position{
+	position: relative !important;
+	top: 3px !important;
+}
 .m-container{
 	max-width: 76em !important;
 	margin: auto !important;
@@ -195,4 +199,11 @@ body{
 .m-padded-tb-mini{
 	padding-top: 1.5em !important;
 	padding-bottom: 1.5em !important;
+}
+.m-padded-tb-minis{
+	padding-top: 0.2em !important;
+	padding-bottom: 0.2em !important;
+}
+.m-teal{
+	color: #00B5AD !important;
 }

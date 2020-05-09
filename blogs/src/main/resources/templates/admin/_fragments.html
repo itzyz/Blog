@@ -25,7 +25,7 @@
             <div class="menu right m-item m-mobil-hide">
                 <div class="ui dropdown item">
                     <div class="text">
-                        <img src="../static/img/3.jpg" th:src="@{/img/3.jpg}" alt="" class="ui avatar image m-img-mini">
+                        <img src="../static/img/3.jpg" th:src="@{/img/me.jpg}" alt="" class="ui avatar image m-img-mini">
                         <span th:text="${session.user.nickname}"></span>
                     </div>
                     <i class="dropdown icon"></i>
@@ -53,10 +53,12 @@
             </div>
             <div class="three wide column">
                 <h4 class="ui inverted header m-option-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">关于故事</a>
-                    <a href="#" class="item">关于学习的清单</a>
-                    <a href="#" class="item">她</a>
+                <div id="newblog-container">
+                    <div class="ui inverted link list">
+                        <a href="#" target="_blank" class="item">MyBatis</a>
+                        <a href="#" target="_blank" class="item">Spring Boot</a>
+                        <a href="#" target="_blank" class="item">SpringMVC</a>
+                    </div>
                 </div>
             </div>
             <div class="three wide column">

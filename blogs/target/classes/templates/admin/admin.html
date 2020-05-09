@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="admin/_fragments::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>后台管理</title>
 	</head>
 	<body>
@@ -9,21 +10,20 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav th:replace="admin/_fragments::menus(1)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui attached pointing menu">
 			<div class="ui container">
 				<div class="right menu">
 					<a href=""  th:href="@{/admin/blogs}" class="active item teal">列表</a>
 					<a href=""  th:href="@{/admin/blogs/editBlog}" class="item">发布</a>
 				</div>
 			</div>
-			
 		</div>
 		<!-- 导航结束 -->
 		<!-- 中间内容开始 -->
 		<div class="m-container m-padded-tb-large ">
 			<div class="ui container">
 				<!--博客信息提示-->
-				<div class="ui segment message " style="text-align: center;" th:switch="${message}">
+				<div class="ui  segment message attached" style="text-align: center;" th:switch="${message}">
 					<p th:case="'0'" style="color:red;font-size: 18px;font-weight: bold;text-align: center;" >新增博客失败哦！</p>
 					<p th:case="'1'" style="color:forestgreen;font-size: 18px;font-weight: bold;">恭喜！经验值+10</p>
 					<p th:case="'2'" style="color:green;font-size: 18px;font-weight: bold;">恭喜！认知度+10</p>
@@ -31,7 +31,7 @@
 					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">博客列表</p>
 					<!--<p th:case="*">*类似defult</p>-->
 				</div>
-				<div class="ui segment form">
+				<div class="ui attached segment form">
 					<input type="hidden" name="page">
 					<div class="inline fields">
 						<div class="field">
@@ -62,7 +62,7 @@
 				</div>
 
 					<div id="table-container">
-						<table th:fragment="blogList" class="ui table celled center aligned">
+						<table th:fragment="blogList" class="ui table attached teal celled center aligned">
 							<thead>
 							<tr>
 								<th></th>

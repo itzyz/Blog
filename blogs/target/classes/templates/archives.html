@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="_fragment::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>归档</title>
 	</head>
 	<body>
@@ -20,125 +21,26 @@
 							<h3 class="ui teal header">标签</h3>
 						</div>
 						<div class="right aligned column">
-							共<h3 class="ui orange header m-inlin-block">14</h3>篇
+							共<h3 class="ui orange header m-inlin-block" th:text="${blogCount}">14</h3>篇
 						</div>
 					</div>
 				</div>
 				<!-- 一年开始 -->
-				<h2 class="ui header center aligned">2017</h2>
+				<th:block th:each="item:${archiveMap}">
+				<h2 class="ui header center aligned" th:text="${item.key}">2017</h2>
 				<div class="ui vertical menu fluid">
 					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
+					<a th:href="@{/blog/{id}(id=${blog.bid})}" target="_blank" class="item" th:each="blog:${item.value}">
 						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
+							<i class="mini teal circle icon"></i>&nbsp;<span th:text="${blog.title}">&nbsp;关于练习的清单</span>
+							<div class="ui teal basic left pointing label m-padded-mini" th:text="${#dates.format(blog.cratetime,'MMMdd')}">2月11日</div>
 						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
+						<div class="ui  basic orange left pointing label m-padded-mini"  th:text="${blog.flag}">原创</div>
 					</a>
 					<!-- 一篇博客结束 -->
 				</div>
+				</th:block>
 				<!-- 一年结束 -->
-				<!-- 一年开始 -->
-				<h2 class="ui header center aligned">2016</h2>
-				<div class="ui vertical menu fluid">
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客结束 -->
-				</div>
-				<!-- 一年结束 -->
-				<!-- 一年开始 -->
-				<h2 class="ui header center aligned">2015</h2>
-				<div class="ui vertical menu fluid">
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客开始 -->
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;关于练习的清单
-							<div class="ui teal basic left pointing label m-padded-mini">2月11日</div>
-						</span>
-						<div class="ui  basic orange left pointing label m-padded-mini">原创</div>
-					</a>
-					<!-- 一篇博客结束 -->
-				</div>
-				<!-- 一年结束 -->
-				
 				<br /><br />
 			</div>
 		</div>

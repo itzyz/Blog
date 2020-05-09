@@ -19,7 +19,7 @@ public interface TakenoteMapper {
     Takenote getByIdTakenote(Integer takenoteid);
 
     /*分页查询*/
-    @Select("select * from takenote")
+    @Select("SELECT * FROM takenote GROUP BY tid DESC")
     List<Takenote> getAllTakenotes();
 
     /*修改*/

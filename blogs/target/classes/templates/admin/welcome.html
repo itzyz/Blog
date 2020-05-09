@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragment::head(~{::title})">
+    <link rel="icon" type="image/x-icon" th:href="/favicon.ico">
     <meta charset="utf-8" />
     <title>登陆成功</title>
 </head>
 <body>
 <!-- 导航开始 -->
-<!-- ！important让自己写的样式优先级更高 -->
+<!-- ！important让自己写的样式优先级更高 th:src="@{/img/3.jpg}" -->
 <nav th:replace="admin/_fragments::menus(0)"  class="ui inverted attached segment m-shadow-small">
 </nav>
-<br>
-<br>
-<br>
-<br>
 <div class="m-container-small m-padded-tb-big">
-    <div class="ui segment  m-padded-tb-big">
+    <div class="ui segment  m-padded-tb-big attached">
         <div class="ui container" style="text-align: center !important;">
-            <h4 style="color: green"><span>亲爱的管理员，欢迎回来!</span></h4>
+            <h3 style="color: green"><span>亲爱的管理员，欢迎回来!</span></h3>
         </div>
     </div>
+    <div class="ui segment attached m-padded-tb-big teal">
+        <img src="https://i.picsum.photos/id/1008/800/450.jpg" class="ui image centered">
+    </div>
+
 </div>
 <br>
 <br>

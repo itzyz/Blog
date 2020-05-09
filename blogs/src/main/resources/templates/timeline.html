@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="_fragment::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>标签</title>
 	</head>
 	<body>
@@ -15,14 +16,14 @@
 			<div class="ui container">
 				<!-- 时光轴 -->
 				<ul class="layui-timeline m-padded-lr">
-					<li class="layui-timeline-item">
+					<li class="layui-timeline-item" th:each="take:${takenoteInfo.list}">
 						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日</h5>
+							<h5 class="layui-timeline-title " th:text="${#dates.format(take.cratetime,'yyyy-MM-dd HH:dd')}">8月18日</h5>
 							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
+										<p th:text="${take.content}">
 											layui 2.0 的一切准备之弦，一触即发。
-											无论它我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
+											无论它我曾倾注全心，无怨无悔
 										</p>
 								  </div>
 						</div>
@@ -30,69 +31,14 @@
 					<li class="layui-timeline-item">
 						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日 14:20</h5>
-							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
-											layui 2.0 的一切准备之弦，一触即发。
-											无论它我全心，无怨无悔 <i class="layui-icon"></i>
-										</p>
-								  </div>
+							<h5 class="layui-timeline-title">完成时间：2020-5-9 15:50</h5>
+							<div class="ui label segment teal basic m-bg-colo m-padded-tb-minis">
+								<p>
+									The End
+								</p>
+							</div>
 						</div>
 					</li>
-					<li class="layui-timeline-item">
-						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日</h5>
-							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
-											layui 2.0 的一切准备之弦，一触即发。
-											无论它我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-										</p>
-								  </div>
-						</div>
-					</li>
-					<li class="layui-timeline-item">
-						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日</h5>
-							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
-											layui 2.0 
-											无论它我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-										</p>
-								  </div>
-						</div>
-					</li>
-					<li class="layui-timeline-item">
-						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日</h5>
-							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
-											layui 2.0 的一切准备之弦，一触即发。
-											无论它我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-										</p>
-								  </div>
-						</div>
-					</li>
-					<li class="layui-timeline-item">
-						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-						<div class="layui-timeline-content layui-text">
-							<h5 class="layui-timeline-title ">8月18日</h5>
-							      <div class="ui left pointing  label segment m-bg-colo m-padded-tb-mini">
-										<p>
-											layui 2.0 的一切准备之弦，一触即发。
-											无论它我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-										</p>
-								  </div>
-						</div>
-					</li>
-					<li class="layui-timeline-item">
-					    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-					    <div class="layui-timeline-content layui-text">
-					      <div class="layui-timeline-title"><h3>The End</h3></div>
-					    </div>
-					  </li>
 				</ul>
 				<!-- 时光轴结束 -->
 			</div>

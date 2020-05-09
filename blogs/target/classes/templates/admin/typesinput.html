@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 	<head th:replace="admin/_fragments::head(~{::title})">
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<meta charset="utf-8" />
 		<title>类型发布</title>
 	</head>
@@ -9,7 +10,7 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav  th:replace="admin/_fragments::menus(n)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui attached pointing menu">
 			<div class="ui container">
 				<div class="right menu">
 					<a href="" th:href="@{/admin/type}" class="item teal">列表</a>

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 	<head th:replace="admin/_fragments::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>点点滴滴</title>
 	</head>
 	<body>
@@ -9,7 +10,7 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav  th:replace="admin/_fragments::menus(n)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui attached pointing menu">
 			<div class="ui container">
 				<div class="right menu">
 					<a href="" th:href="@{/admin/takenote}" class="item teal">列表</a>
@@ -28,9 +29,8 @@
 						<div class="ui left labeled input">
 							<label class="ui teal basic label">内容</label>
 							<input type="text" name="content" placeholder="日常记录" th:value="*{content}"/>
-						</input>
+						</div>
 					</div>
-
 					<div class="ui right aligned container">
 						<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
 						<button class="ui teal button" type="submit" >提交</button>

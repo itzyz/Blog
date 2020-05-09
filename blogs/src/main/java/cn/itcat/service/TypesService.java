@@ -1,5 +1,6 @@
 package cn.itcat.service;
 
+import cn.itcat.entity.Blogs;
 import cn.itcat.entity.Type;
 
 import java.util.List;
@@ -15,8 +16,9 @@ public interface TypesService {
     /*分页查询*/
     List<Type> getAllTypes(Integer page,Integer size);
 
-    /*查询所有*/
     List<Type> getAllTypes();
+
+    List<Type> getTypes(Integer page,Integer size);
     /*修改*/
     int updateType(Integer typeid,String typename);
 

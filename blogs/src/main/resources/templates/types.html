@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="_fragment::head(~{::title})">
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<title>分类</title>
 	</head>
 	<body>
@@ -20,183 +21,48 @@
 							<h3 class="ui teal header">分类</h3>
 						</div>
 						<div class="right aligned column">
-							共<h3 class="ui orange header m-inlin-block">14</h3>个
+							共<h3 class="ui orange header m-inlin-block"  th:text="${#arrays.length(types)}">14</h3>个<!--.blogs-->
 						</div>
 					</div>
 				</div>
 				<!-- types -->
 				<div class="ui segment attached m-padded-tb-large">
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic teal button">体验</a>
-						<div class="ui  basic teal left pointing label">8</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">体验</a>
-						<div class="ui  basic left pointing label">20</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">思考与感悟</a>
-						<div class="ui  basic left pointing label">25</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">思考与感悟</a>
-						<div class="ui  basic left pointing label">17</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">SpringBoot</a>
-						<div class="ui  basic left pointing label">18</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">思考与感悟</a>
-						<div class="ui  basic left pointing label">28</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">学习清单</a>
-						<div class="ui  basic left pointing label">5</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">清单</a>
-						<div class="ui  basic left pointing label">9</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">开发者</a>
-						<div class="ui  basic left pointing label">6</div>
-					</div>
-					<div class="ui labeled button m-margin-tb-mini ">
-						<a href="" class="ui basic  button">感悟</a>
-						<div class="ui  basic left pointing label">8</div>
+					<div class="ui labeled button m-margin-tb-mini "  th:each="types : ${types}">
+						<a th:href="@{/types/{id}(id=${types.typeid})}" class="ui basic button" th:classappend="${types.typeid==activeTypeId} ? 'teal'" th:text="${types.typename}">体验</a>
+						<!--<div class="ui  basic left pointing label" th:classappend="${types.typeid==activeTypeId} ? 'teal'" th:text="${#arrays.length(types.blogs)}">8</div>-->
 					</div>
 				</div>
 				<div class="ui top attached segment teal">
 					<!-- 文章开始 -->
-					<div class="ui padded segment m-padded-tb-large  m-mobil-lr-claer">
+					<div class="ui padded segment m-padded-tb-large  m-mobil-lr-claer"  th:each="blog:${pageInfo.list}">
 						<div class="ui mobile reversed stackable grid">
 							<div class="eleven wide column">
-								<h3 class="ui header">你真的知道什么是财富自由吗？</h3>
-								<p class="m-text">要在浏览器中请求多张相同大小的图像，请添加随机查询参数以防止图像被缓存API默认会每页返回30个项目。要请求其他页面，请使用？page参数。每页项目数，请使用？limit参数</p>
+								<h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.bid})}"  target="_blank" class="m-black" th:text="${blog.title}">你真的知道什么是财富自由吗？</a></h3>
+								<p class="m-text"  th:text="|${blog.describes}......|">要在浏览器中请求多张相同大小的图像，请添加随机查询参数以防止图像被缓存API默认会每页返回30个项目。要请求其他页面，请使用？page参数。每页项目数，请使用？limit参数</p>
 								<div class="ui stackable grid">
 									<div class="eleven wide column">
 										<div class="ui mini horizontal list link">
 											<div class="item">
-												<img src="../static/img/1.jpg" alt="" class="ui avatar image m-img-tiny">
-												<div class="content"><a href="#" class="header">赵永志</a></div>
+												<img th:src="@{/img/me.jpg}"  alt="" class="ui avatar image m-img-tiny">
+												<div class="content"><a href="#" class="header">小小代码匠</a></div>
 											</div>
 											<div class="item">
-												<i class="calendar icon"></i>2020-4-18
+												<i class="calendar icon"></i><span th:text="${#dates.format(blog.cratetime,'yyyy-MM-dd')}">2017-10-01</span>
 											</div>
 											<div class="item">
-												<i class="eye icon"></i>65
+												<i class="eye icon"></i><span th:text="${blog.views}">2342</span>
 											</div>
 										</div>
 									</div>
 									<div class="right aligned five wide column">
-										<a href="" target="_blank" class="ui teal basic label m-padded-mini m-text-thins">认知升级</a>
+										<a href="" target="_blank" class="ui teal basic label m-padded-mini m-text-thins" th:text="${blog.type.typename}">认知升级</a>
 									</div>
 								</div>
 							</div>
 							<div class="five wide column">
-								<a href="#" target="_blank">
+								<a href="#" target="_blank"  th:href="@{/blog/{id}(id=${blog.bid})}">
 									<!-- https://unsplash.it/800/450/?image=1005 -->
-									<img src="../static/img/3.jpg" alt="" class="ui rounded image m-img-big">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="ui padded segment m-padded-tb-large  m-mobil-lr-claer">
-						<div class="ui mobile reversed stackable grid">
-							<div class="eleven wide column">
-								<h3 class="ui header">你真的知道什么是财富自由吗？</h3>
-								<p class="m-text">要在浏览器中请求多张相同大小的图像，请添加随机查询参数以防止图像被缓存API默认会每页返回30个项目。要请求其他页面，请使用？page参数。每页项目数，请使用？limit参数</p>
-								<div class="ui stackable grid">
-									<div class="eleven wide column">
-										<div class="ui mini horizontal list link">
-											<div class="item">
-												<img src="../static/img/1.jpg" alt="" class="ui avatar image m-img-tiny">
-												<div class="content"><a href="#" class="header">赵永志</a></div>
-											</div>
-											<div class="item">
-												<i class="calendar icon"></i>2020-4-18
-											</div>
-											<div class="item">
-												<i class="eye icon"></i>65
-											</div>
-										</div>
-									</div>
-									<div class="right aligned five wide column">
-										<a href="" target="_blank" class="ui teal basic label m-padded-mini m-text-thins">认知升级</a>
-									</div>
-								</div>
-							</div>
-							<div class="five wide column">
-								<a href="#" target="_blank">
-									<!-- https://unsplash.it/800/450/?image=1005 -->
-									<img src="../static/img/3.jpg" alt="" class="ui rounded image m-img-big">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="ui padded segment m-padded-tb-large  m-mobil-lr-claer">
-						<div class="ui mobile reversed stackable grid">
-							<div class="eleven wide column">
-								<h3 class="ui header">你真的知道什么是财富自由吗？</h3>
-								<p class="m-text">要在浏览器中请求多张相同大小的图像，请添加随机查询参数以防止图像被缓存API默认会每页返回30个项目。要请求其他页面，请使用？page参数。每页项目数，请使用？limit参数</p>
-								<div class="ui stackable grid">
-									<div class="eleven wide column">
-										<div class="ui mini horizontal list link">
-											<div class="item">
-												<img src="../static/img/1.jpg" alt="" class="ui avatar image m-img-tiny">
-												<div class="content"><a href="#" class="header">赵永志</a></div>
-											</div>
-											<div class="item">
-												<i class="calendar icon"></i>2020-4-18
-											</div>
-											<div class="item">
-												<i class="eye icon"></i>65
-											</div>
-										</div>
-									</div>
-									<div class="right aligned five wide column">
-										<a href="" target="_blank" class="ui teal basic label m-padded-mini m-text-thins">认知升级</a>
-									</div>
-								</div>
-							</div>
-							<div class="five wide column">
-								<a href="#" target="_blank">
-									<!-- https://unsplash.it/800/450/?image=1005 -->
-									<img src="../static/img/3.jpg" alt="" class="ui rounded image m-img-big">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="ui padded segment m-padded-tb-large  m-mobil-lr-claer">
-						<div class="ui mobile reversed stackable grid">
-							<div class="eleven wide column">
-								<h3 class="ui header">你真的知道什么是财富自由吗？</h3>
-								<p class="m-text">要在浏览器中请求多张相同大小的图像，请添加随机查询参数以防止图像被缓存API默认会每页返回30个项目。要请求其他页面，请使用？page参数。每页项目数，请使用？limit参数</p>
-								<div class="ui stackable grid">
-									<div class="eleven wide column">
-										<div class="ui mini horizontal list link">
-											<div class="item">
-												<img src="../static/img/1.jpg" alt="" class="ui avatar image m-img-tiny">
-												<div class="content"><a href="#" class="header">赵永志</a></div>
-											</div>
-											<div class="item">
-												<i class="calendar icon"></i>2020-4-18
-											</div>
-											<div class="item">
-												<i class="eye icon"></i>65
-											</div>
-										</div>
-									</div>
-									<div class="right aligned five wide column">
-										<a href="" target="_blank" class="ui teal basic label m-padded-mini m-text-thins">认知升级</a>
-									</div>
-								</div>
-							</div>
-							<div class="five wide column">
-								<a href="#" target="_blank">
-									<!-- https://unsplash.it/800/450/?image=1005 -->
-									<img src="../static/img/3.jpg" alt="" class="ui rounded image m-img-big">
+									<img src="../static/img/3.jpg" alt=""  th:src="@{${blog.firstpicture}}" class="ui rounded image m-img-big">
 								</a>
 							</div>
 						</div>
@@ -207,10 +73,10 @@
 				<div class="ui bottom attached segment">
 					<div class="ui middle aligned two column grid">
 						<div class="column">
-							<a href="#" class="ui mini teal basic button">上一页</a>
+							<a th:href="@{'/types/'+${activeTypeId}(page=${pageInfo.pageNum}-1)}" class="ui mini teal basic button">上一页</a>
 						</div>
 						<div class="right aligned column">
-							<a href="#" class="ui mini teal basic button">下一页</a>
+							<a th:href="@{'/types/'+${activeTypeId}(page=${pageInfo.pageNum}+1)}" class="ui mini teal basic button">下一页</a>
 						</div>
 					</div>
 				</div>

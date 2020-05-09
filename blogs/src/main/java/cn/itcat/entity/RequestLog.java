@@ -1,8 +1,9 @@
 package cn.itcat.entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class RequestLog {
+public class RequestLog implements Serializable{
     private String url;
     private String ip;
     private String classMethod;

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title th:replace="${title}">文章</title>
     <link rel="stylesheet"  type="text/css" href="../static/css/typo.css"  th:href="@{/css/typo.css}"/>
+
     <link rel="stylesheet"  type="text/css" href="../static/css/me.css"  th:href="@{/css/me.css}"/>
     <link rel="stylesheet" href="../static/css/semantic.min.css" th:href="@{/css/semantic.min.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/animate.min.css"  th:href="@{/css/animate.min.css}"/>
@@ -26,11 +27,11 @@
     <div class="ui container">
         <div class="ui inverted secondary menu stackable">
             <h2 class="ui teal header item">Blog</h2>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==2} ? 'active'" ><i class="clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==3} ? 'active'"><i class="idea icon"></i>分类</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==4} ? 'active'"><i class="edit icon"></i>点点滴滴</a>
-            <a href="#" class="m-item item m-mobil-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
+            <a  th:href="@{/}" class="m-item item m-mobil-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
+            <a  th:href="@{/types/-1}" class="m-item item m-mobil-hide" th:classappend="${n==3} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a  th:href="@{/archives}" class="m-item item m-mobil-hide" th:classappend="${n==2} ? 'active'" ><i class="clone icon"></i>归档</a>
+            <a  th:href="@{/timeline}" class="m-item item m-mobil-hide" th:classappend="${n==4} ? 'active'"><i class="edit icon"></i>点点滴滴</a>
+            <a  th:href="@{/about}" class="m-item item m-mobil-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
             <div class="m-item right item m-mobil-hide">
                 <div class="ui icon input">
                     <input type="text" placeholder="搜索.." />
@@ -54,24 +55,29 @@
                     </div>
                 </div>
             </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header m-option-mini">最新博客</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">关于故事</a>
-                    <a href="#" class="item">关于学习的清单</a>
-                    <a href="#" class="item">她</a>
+
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-option-mini">最新博客</h4>
+                    <div id="newblog-container">
+                        <div class="ui inverted link list"  th:fragment="newblogList">
+                            <!--<a th:href="@{/blog/{id}(id=${blog.bid})}" target="_blank" class="item" th:each="blog:${footerpageInfo.list}" th:text="${blog.title}">关于故事</a>-->
+                            <a target="_blank" class="item">关于JVM</a>
+                            <a target="_blank" class="item">JAVA基础</a>
+                            <a target="_blank" class="item">Spring家族</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
             <div class="three wide column">
                 <h4 class="ui inverted header m-option-mini">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">Email：zhaoyongzhi@qq.com</a>
+                    <a href="#" class="item">Email：ityoungzhi@163.com</a>
                     <a href="#" class="item">QQ：951815578</a>
                 </div>
             </div>
             <div class="seven wide column">
                 <h4 class="ui inverted header m-option-mini">Recommendation</h4>
-                <p class="m-text-thin m-text-spaced m-option-mini">这是我的个人博客，会分享编程、学习方法的一些<br/>内容，希望可以和来到这的人一起探讨.......</p>
+                <p class="m-text-thin m-text-spaced m-option-mini">即使再小的帆，也能远航。<br/><br/>理想到现实的距离是坚信不疑。</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>

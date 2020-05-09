@@ -13,6 +13,7 @@ public class User implements Serializable {
     private String email;
     private Integer type;
     private Date uptime;
+    private String Avatar;
     /*一对多*/
     private List<Blogs> blogs=new ArrayList<>();
     /*一对多*/
@@ -37,6 +38,14 @@ public class User implements Serializable {
 
     public List<Takenote> getTakenotes() {
         return takenotes;
+    }
+
+    public String getAvatar() {
+        return Avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        Avatar = avatar;
     }
 
     public void setTakenotes(List<Takenote> takenotes) {

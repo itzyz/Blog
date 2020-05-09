@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head th:replace="admin/_fragments::head(~{::title})">
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
 		<meta charset="utf-8" />
 		<title>博客类型</title>
 	</head>
@@ -9,7 +10,7 @@
 		<!-- ！important让自己写的样式优先级更高 -->
 		<nav th:replace="admin/_fragments::menus(3)"  class="ui inverted attached segment m-shadow-small">
 		</nav>
-		<div class="ui attched pointing menu">
+		<div class="ui attached pointing menu">
 			<div class="ui container">
 				<div class="right menu">
 					<a href="" th:href="@{/admin/type}" class="active item teal">列表</a>
@@ -19,10 +20,10 @@
 		</div>
 		<!-- 导航结束 -->
 		<!-- 中间内容开始 -->
-		<div class="m-container m-padded-tb-large ">
-			<div class="ui container">
+		<div class="m-container m-padded-tb-large ui ">
+			<div class="ui container attached">
 				<!--<div th:text="${message}" style="color:red;font-size: 11px;"></div>-->
-				<div class="ui segment message " style="text-align: center;" th:switch="${message}">
+				<div class="ui segment message attached " style="text-align: center;" th:switch="${message}">
 					<p th:case="'0'" style="color:green;font-size: 18px;font-weight: bold;text-align: center;" >新增博客类型成功！</p>
 					<p th:case="'1'" style="color:red;font-size: 18px;font-weight: bold;">新增博客类型失败！</p>
 					<p th:case="'2'" style="color:green;font-size: 18px;font-weight: bold;">删除成功！</p>
@@ -30,7 +31,7 @@
 					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">博客类型</p>
 					<!--<p th:case="*">*类似defult</p>-->
 				</div>
-				<table class="ui table celled center aligned">
+				<table class="ui table celled center aligned teal attached">
 					<thead>
 						<tr>
 							<th></th>
