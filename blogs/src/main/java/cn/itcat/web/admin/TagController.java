@@ -25,7 +25,7 @@ public class TagController {
     /*查询所有，分页显示*/
     @RequestMapping("/tag")
     public ModelAndView tags(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                              @RequestParam(name="size",required = true,defaultValue = "6")int size){
+                              @RequestParam(name="size",required = true,defaultValue = "9")int size){
         ModelAndView mv=new ModelAndView();
         List<Tag> tagList=tagsService.getAllTags(page,size);
         /*PageInfo是一个分页Bean*/

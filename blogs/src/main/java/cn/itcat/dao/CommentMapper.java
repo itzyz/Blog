@@ -21,7 +21,7 @@ public interface CommentMapper {
     List<Comment> listCommentByBlogid(Integer bid);
 
     /*获取二级回复*/
-    @Select("SELECT * FROM COMMENT WHERE parentcommentid=#{cid} AND parentcommentid IS NOT NULL")
+    @Select("SELECT * FROM comment WHERE parentcommentid=#{cid} AND parentcommentid IS NOT NULL")
     List<Comment> listCommentReplyByCid(Integer cid);
 
     /*获取一条评论对象*/
@@ -29,7 +29,7 @@ public interface CommentMapper {
     Comment getAcomment(Integer cid);
 
     /*保存评论*/
-    @Insert("INSERT INTO COMMENT(nickname,email,content,avatar,bid,parentcommentid,admincomment) " +
+    @Insert("INSERT INTO comment(nickname,email,content,avatar,bid,parentcommentid,admincomment) " +
             " VALUES(#{nickname},#{email},#{content},#{avatar},#{blogs.bid},#{parentComment.cid},#{adminComment}) ")
     int saveComment(Comment comment);
 }

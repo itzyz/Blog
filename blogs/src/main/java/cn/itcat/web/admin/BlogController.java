@@ -48,7 +48,7 @@ public class BlogController {
     /*异步刷新查询*/
     @RequestMapping("/blogs/search")
     public String search(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                         @RequestParam(name="size",required = true,defaultValue = "6")int size,
+                         @RequestParam(name="size",required = true,defaultValue = "9")int size,
                          BlogCondition blogs, Model model, @RequestParam Integer typeid){
         List<Blogs> blogList=blogService.listBlog(page,size,blogs);
         PageInfo pageInfo=new PageInfo(blogList);
@@ -57,7 +57,7 @@ public class BlogController {
     }
     /*实现保存博客*/
     @RequestMapping("/blogs/saveBlog")
-    public String saveBlog(Blogs blog, HttpSession session, RedirectAttributes attributes){
+    public String saveBlog(Blogs blog, HttpSession session,RedirectAttributes attributes){
         if(blog.getBid()==null){
             blog.setUser((User) session.getAttribute("user"));
             blog.setType(typesService.getType(blog.getType().getTypeid()));

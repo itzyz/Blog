@@ -16,7 +16,7 @@ public interface TagMapper {
     int saveTag(Tag tag);
 
     /*id查询*/
-    @Select("select * from Tag where Tagid=#{Tagid}")
+    @Select("select * from tag where tagid=#{tagid}")
     Tag getByIdTag(Integer tagid);
 
     /**通过集合id查询*/
@@ -31,7 +31,7 @@ public interface TagMapper {
 
 
     /*分页查询*/
-    @Select("select * from Tag")
+    @Select("select * from tag")
     List<Tag> getAllTags();
 
     /*修改*/

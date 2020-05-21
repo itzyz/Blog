@@ -24,7 +24,7 @@ public class TypeController {
     /*查询所有，分页显示*/
     @RequestMapping("/type")
     public ModelAndView types(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                              @RequestParam(name="size",required = true,defaultValue = "6")int size){
+                              @RequestParam(name="size",required = true,defaultValue = "9")int size){
         ModelAndView mv=new ModelAndView();
         List<Type> typeList=typesService.getAllTypes(page,size);
         /*PageInfo是一个分页Bean*/

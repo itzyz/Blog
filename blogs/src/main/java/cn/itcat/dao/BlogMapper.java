@@ -44,10 +44,10 @@ public interface BlogMapper {
     @Select("SELECT * FROM blogs WHERE recommend = true")
     List<Blogs> getRecommendBlog();
     /*查询博客总条数*/
-    @Select("SELECT COUNT(*) FROM blogs")
+    @Select("SELECT count(*) FROM blogs")
     Integer getBlogCount();
     /*查询年份*/
-    @Select("SELECT DATE_FORMAT(cratetime,'%Y') AS YEAR FROM blogs GROUP BY YEAR DESC")
+    @Select("SELECT DATE_FORMAT(cratetime,'%Y') AS year FROM blogs GROUP BY year DESC")
     List<String> findGroupYear();
     /*根据年份查询博客*/
     @Select("SELECT * FROM blogs WHERE DATE_FORMAT(cratetime,'%Y')=#{year}")

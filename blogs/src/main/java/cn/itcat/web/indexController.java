@@ -28,7 +28,7 @@ public class indexController {
     private TagsService tagsService;
     @GetMapping("/")
     public String index(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                        @RequestParam(name="size",required = true,defaultValue = "5")int size,
+                        @RequestParam(name="size",required = true,defaultValue = "6")int size,
                         BlogCondition blogs, Model model){
         /*分页获取类型*/
         List<Type> typeList=typesService.getTypes(page,6);

@@ -25,7 +25,7 @@ public class TakenoteController {
     /*查询所有，分页显示*/
     @RequestMapping("/takenote")
     public ModelAndView takenotes(@RequestParam(name="page",required = true,defaultValue = "1")int page,
-                                @RequestParam(name="size",required = true,defaultValue = "6")int size){
+                                @RequestParam(name="size",required = true,defaultValue = "9")int size){
         ModelAndView mv=new ModelAndView();
         List<Takenote> takenoteList=takenotesService.getAllTakenotes(page,size);
         /*PageInfo是一个分页Bean*/

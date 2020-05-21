@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="admin/_fragments::head(~{::title})">
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" th:href="/favicon.ico">
+		<title>图片管理</title>
+	</head>
+	<body>
+		<!-- 导航开始 -->
+		<!-- ！important让自己写的样式优先级更高 -->
+		<nav th:replace="admin/_fragments::menus(5)"  class="ui inverted attached segment m-shadow-small">
+		</nav>
+		<!-- 导航结束 -->
+		<!-- 中间内容开始 -->
+		<div class="m-container m-padded-tb-large ">
+			<div class="ui container">
+				<div th:text="${message}" style="color:red;font-size: 11px;"></div>
+				<div class="ui segment message attached" style="text-align: center;" th:switch="${message}">
+					<p th:case="'0'" style="color:green;font-size: 18px;font-weight: bold;text-align: center;" >新增图片成功！</p>
+					<p th:case="'1'" style="color:green;font-size: 18px;font-weight: bold;">删除图片成功！</p>
+					<p th:case="*" style="color:black;font-size: 20px;font-weight: bold;">图片</p>
+				</div>
+					<table class="ui attached table celled center alignedattached">
+					<thead>
+						<tr>
+							<th></th>
+							<th>图片</th>
+							<th >图片地址</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="imgs,stat:${pageInfo.list}">
+							<td th:text="${stat.count}">1</td>
+							<td><img th:src="@{${imgs.path}}" style="width:100px;height:80px"></td>
+							<td th:text="${imgs.filename}"></td>
+							<td>
+								<a th:href="@{/admin/upimg/{id}/del(id=${imgs.id})}" class="ui mini red basic button">删除</a>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="6">
+								<div class="ui mini pagination menu left floated">
+									<a th:href="@{/admin/imgs(page=${pageInfo.pageNum}-1)}" class="item">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<a th:href="@{/admin/imgs(page=${pageInfo.pageNum}+1)}" class="item">下一页</a>
+								</div>
+								<a href="" th:href="@{/admin/upimg}" class="ui mini teal basic button right floated">上传图片</a>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<br><br><br><br><br>
+		<!-- 中间内容结束 -->
+		<!-- 底部开始 -->
+		<footer th:replace="admin/_fragments::footer" class="ui inverted attached segment m-padded-tb">
+		</footer>
+		<!-- 底部结束 -->
+		<script>
+			$('.menu.toggle').click(function(){
+				$('.m-item').toggleClass('m-mobil-hide');
+			});
+			$('.ui.dropdown').dropdown({
+				on:'hover'
+			});
+		</script>
+		<!--<script>
+			$('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+		</script>-->
+	</body>
+</html>

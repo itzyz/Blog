@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentMapper commentMapper;

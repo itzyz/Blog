@@ -1,17 +1,26 @@
 spring:
   thymeleaf:
     mode: HTML
+    prefix: classpath:/templates/
   profiles:
     active: dev
   mvc:
     favicon:
       enabled: false
 
+#绝对和相对路/root径D://images/
+file.upload.path: D://images/images/
+file.upload.path.relative: /images/**
 
 comment.avatar: /img/user.jpg
 comment.meavatar: /img/me.jpg
 
-
 mybatis:
   configuration:
     cache-enabled: true
+
+#上传文件iz2ze1ss51kjnbfr8g01lzz
+# 设置单个文件最大内存
+multipart:
+  maxFileSize: 100Mb
+  maxRequestSize: 100Mb
